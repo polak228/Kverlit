@@ -1,0 +1,3 @@
+[submodule "lib/php/tplp"]
+	path = lib/php/tplp
+	url = https://github.com/polak228/Tplp

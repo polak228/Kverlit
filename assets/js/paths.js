@@ -1,0 +1,5 @@
+const paths = {
+  
+};
+
+export { paths };
