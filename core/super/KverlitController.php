@@ -12,7 +12,7 @@ define("ROOT", $_SERVER["DOCUMENT_ROOT"]);
 
 spl_autoload_register(function($className) {
   $classPath = ROOT . "/" . str_replace("\\", "/", $className) . ".php";
-  /*if( file_exists($classPath) ) */require_once $classPath;
+  if( file_exists($classPath) ) require_once $classPath;
 });
 
 

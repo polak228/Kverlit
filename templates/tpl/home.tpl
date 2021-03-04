@@ -1,1 +1,1 @@
-<h1>Salam</h1>
+<h1>Salam, this is home page!</h1>

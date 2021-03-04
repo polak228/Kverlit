@@ -1,6 +1,9 @@
 <?php
 namespace core\models;
 
+require ROOT . "/lib/php/tplp/autoload.php";
+use repo\Tplp;
+
 /**
  * Модель основного маршрутизатора приложения.
  *
@@ -31,18 +34,18 @@ class RouterModel implements RouterModelInterface {
 
   static $pages = array(
     "tpl" => array(
-      "home" => "/tpl/home.tplp"
+      "home" => "tpl/home.tpl"
     )
   );
 
   public function returnPage($params) {
     $type = $_POST["params"]["type"]; $url = $_POST["params"]["url"];
     if( self::$pages[$type][$url] ) {
-      $g = new Tplp;
-      /* return array(
+      $temp = new Tplp(ROOT . "/templates/" . self::$pages[$type][$url]);
+      return array(
         "status" => "success",
-        "success" => new Tplp(ROOT . "/templates/" . self::$pages["type"]["url"])
-      ); */
+        "success" => $temp -> render("", false)
+      );
     } else return self::returnError();
   }
 
