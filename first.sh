@@ -12,5 +12,5 @@ if [[ "$flag" -eq "-db" ]]; then
     cd config;
   fi
   echo "<?php \$connect = mysqli_connect('$host', '$user', '$password', '$db');" > php/connect.php;
-  echo "~~ "'$connect'" - /config/php/connect.php ~~";
+  echo "~ "'$connect'" - /config/php/connect.php ~";
 fi
