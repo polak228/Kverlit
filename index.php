@@ -1,3 +1,4 @@
+<?php require_once "modules/php/controlUrls.php"; ?>
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -47,5 +48,8 @@
   </form>
   <script src="/modules/js/login.js" type="module" async></script>
 </body>
-<?php endif; ?>
+<?php elseif( $_GET["home"] === "" ): ?>
+<title>Главная | Kverlit</title>
+<h1>HOME PAGE</h1>
+<?php else: header("Location: /"); endif; ?>
 </html>

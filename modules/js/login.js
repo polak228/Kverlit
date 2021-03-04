@@ -1,20 +1,19 @@
-import { paths } from "/assets/js/paths.js";
+import { Kverlit } from "/assets/js/functions.js";
 
-function login(params) {
-  $.ajax({
-    url: paths.ПОСТАВИТЬКОНТРОЛЛЕР, method: "post",
-    dataType: "json", data: { params : params },
-    success: function(response) {
-      if( response.status === "error" ) {
-        $(".login_form_window").html("<h3 class='login_form_window_error'>Неверный логин, или пароль</h3>");
-      } window.location.href = "/?home";
-    }
-  });
-}
 
 $(function() {
   $(".login_form_button").click(function(e) {
     e.preventDefault();
-    login({ method : "login", login : login, password : password });
+    var login = $(".login_form_login").val();
+    var password = $(".login_form_password").val();
+    var response = Kverlit.kverlitLogin({
+      call : "engine", method : "login",
+      login : login, password : password
+    });
+    response.done(function(response) {
+      if( response.status === "error" ) {
+        return $(".login_form_window").html("<h3 class='login_form_window_error'>Неверный логин, или пароль</h3>");
+      } window.location.href = "/?home";
+    });
   });
 });
