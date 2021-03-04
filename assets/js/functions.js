@@ -3,7 +3,7 @@ import { paths } from "./paths.js";
 
 class Kverlit {
 
-  static kverlitLogin(params) {
+  static ajax(params) {
     return $.ajax({
       url: paths.KverlitController, method: "post",
       dataType: "json", data: { params : params }

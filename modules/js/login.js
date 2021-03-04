@@ -6,7 +6,7 @@ $(function() {
     e.preventDefault();
     var login = $(".login_form_login").val();
     var password = $(".login_form_password").val();
-    var response = Kverlit.kverlitLogin({
+    var response = Kverlit.ajax({
       call : "engine", method : "login",
       login : login, password : password
     });
