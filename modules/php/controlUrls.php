@@ -1,4 +1,11 @@
 <?php
+/**
+ * Контроль страниц в зависимости от сессий.
+ * 
+ * @package default
+ * @author `_polak228_`
+ */
+
 session_start();
 
 function redirect($location) {
