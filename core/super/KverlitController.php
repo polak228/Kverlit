@@ -41,7 +41,7 @@ class KverlitController implements KverlitControllerInterface {
 }
 
 
-// только если это ajax
+// только если это ajax:
 if( $_SERVER["HTTP_X_REQUESTED_WITH"] !== "XMLHttpRequest" ) header("Location: /");
 else {
   $KverlitController = new KverlitController;
