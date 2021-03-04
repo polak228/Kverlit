@@ -12,13 +12,19 @@ use core\models\RouterModel;
 
 interface RouterControllerInterface {
 
-  // functions
+  public function control($method);
 
 }
 
 
 class RouterController extends RouterModel implements RouterControllerInterface {
 
-  // functions
+  static $methods = array(
+    "returnPage" => "returnPage"
+  );
+
+  public function control($method) {
+    return self::$methods[$method] ? [$this, self::$methods[$method]]($_POST["params"]) : self::returnError();
+  }
 
 }

@@ -10,8 +10,9 @@ session_start();
 
 define("ROOT", $_SERVER["DOCUMENT_ROOT"]);
 
-spl_autoload_register(function($class_name) {
-  require_once ROOT . "/" . str_replace("\\", "/", $class_name) . ".php";
+spl_autoload_register(function($className) {
+  $classPath = ROOT . "/" . str_replace("\\", "/", $className) . ".php";
+  /*if( file_exists($classPath) ) */require_once $classPath;
 });
 
 
@@ -35,6 +36,9 @@ class KverlitController implements KverlitControllerInterface {
       case "engine": 
         $EngineController = new EngineController($connect);
         return $EngineController -> control($method);
+      case "router":
+        $RouterController = new RouterController($_POST["params"]["url"]);
+        return $RouterController -> control($method);
     }
   }
 

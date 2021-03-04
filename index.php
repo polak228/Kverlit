@@ -50,6 +50,8 @@
 </body>
 <?php elseif( $_GET["home"] === "" ): ?>
 <title>Главная | Kverlit</title>
-<h1>HOME PAGE</h1>
+<body>
+  <script src="/modules/js/account.js" type="module"></script>
+</body>
 <?php else: header("Location: /"); endif; ?>
 </html>

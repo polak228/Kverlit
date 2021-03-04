@@ -6,7 +6,8 @@ class Kverlit {
   static ajax(params) {
     return $.ajax({
       url: paths.KverlitController, method: "post",
-      dataType: "json", data: { params : params }
+      dataType: "text", data: { params : params },
+      success: function(data) { alert(data); }
     });
   }
 
