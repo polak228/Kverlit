@@ -2,7 +2,7 @@
 namespace core\models;
 
 require ROOT . "/lib/php/tplp/autoload.php";
-use repo\Tplp;
+use Tplp;
 
 /**
  * Модель основного маршрутизатора приложения.
