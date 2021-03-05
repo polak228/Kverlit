@@ -37,7 +37,7 @@ class EngineModel implements EngineModelInterface {
   public function login($params) {
     $login = self::clearData($params["login"]); $password = self::clearData($params["password"]);
     if( !$login || !$password ) self::returnError();
-    if( !(strlen($login) > 1) && !(strlen($password) > 6) ) return self::returnError();
+    if( (strlen($login) <= 1) && (strlen($password) <= 6) ) return self::returnError();
     $query = "SELECT `user_id`, `user_login`, `user_password` FROM `users` WHERE `user_login` = '$login' LIMIT 1;";
     $user = mysqli_fetch_assoc(mysqli_query($this -> connect, $query));
     if( !$user["user_id"] || !password_verify($password, $user["user_password"]) ) return self::returnError();
