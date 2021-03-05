@@ -1,7 +1,7 @@
 # Kverlit
 
 Установка:
-`git clone https://github.com/polak228/Kverlit.git`
+`git clone --recursive https://github.com/polak228/Kverlit.git`
 
 Настройка подключения к БД:
 `bash first.sh -db !Host !User !Password !DbName`
