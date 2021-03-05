@@ -23,6 +23,17 @@ class Kverlit {
     } return "";
   }
 
+  static returnPage(url, contain) {
+    var response = this.ajax({
+      call : "router", method : "returnPage", url : url
+    });
+    response.done(function(response) {
+      if( response.status === "error" ) {
+        return $(contain).empty().append("<h1>Страница не существует</h1>");
+      } $(contain).empty().append(response.success);
+    });
+  }
+
 }
 
 

@@ -2,13 +2,20 @@ import { Kverlit } from "/assets/js/functions.js";
 
 
 $(function() {
-  var response = Kverlit.ajax({
-    call : "router", method : "returnPage",
-    type : "tpl", url : "home"
+  var URL = window.location.search.replace("?", "");
+  Kverlit.returnPage(URL, ".account_content");
+  // url button
+  $("body").on("click", "*[url]", function() {
+    let URL = $(this).attr("url").replace("?", "");
+    if( window.location.search.replace("?", "") !== URL ) {
+      Kverlit.returnPage(URL, ".account_content");
+      window.history.pushState(null, null, "/?" + URL);
+    }
   });
-  response.done(function(response) {
-    if( response.status === "error" ) {
-      return $("body").empty().append("<h1>Страница не существует</h1>");
-    } $("body").empty().append(response.success);
+  // history back
+  $(window).on("popstate", function(event) {
+    event.preventDefault();
+    let URL = window.location.search.replace("?", "");
+    Kverlit.returnPage(URL, ".account_content");
   });
 });

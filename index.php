@@ -48,10 +48,17 @@
   </form>
   <script src="/modules/js/login.js" type="module" async></script>
 </body>
-<?php elseif( $_GET["home"] === "" ): ?>
+<?php elseif( $_GET["home"] === "" || $_GET["mail"] === "" ): ?>
 <title>Главная | Kverlit</title>
 <body>
-  <script src="/modules/js/account.js" type="module"></script>
+  <script src="/modules/js/account.js" type="module" async></script>
+  <!-- ACCOUNT CONTENT -->
+  <div class="account_content">
+    
+  </div>
+  <nav class="footer">
+    <button class="footer_mail" url="mail"></button>
+  </nav>
 </body>
 <?php else: header("Location: /"); endif; ?>
 </html>

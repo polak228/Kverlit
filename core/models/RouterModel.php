@@ -32,16 +32,11 @@ class RouterModel implements RouterModelInterface {
     );
   }
 
-  static $pages = array(
-    "tpl" => array(
-      "home" => "tpl/home.tpl"
-    )
-  );
-
   public function returnPage($params) {
-    $type = $_POST["params"]["type"]; $url = $_POST["params"]["url"];
-    if( self::$pages[$type][$url] ) {
-      $temp = new Tplp(ROOT . "/templates/" . self::$pages[$type][$url]);
+    $pages = require(ROOT . "/modules/php/urls.php");
+    $url = $_POST["params"]["url"];
+    if( $pages[$url] ) {
+      $temp = new Tplp(ROOT . "/templates/" . $pages[$url]);
       return array(
         "status" => "success",
         "success" => $temp -> render("", false)

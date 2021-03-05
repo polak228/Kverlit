@@ -12,6 +12,30 @@ body {
   user-select: none;
 }
 
+/* FOOTER */
+
+.footer {
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100vw; height: 58px;
+  border: solid #ededed;
+  border-width: 1px 0 0 0;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.footer_mail {
+  flex-basis: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url("/assets/media/images/mail_icon.png");
+  background-size: 26px;
+}
+
 /* INDEX */
 
 .index_header {
