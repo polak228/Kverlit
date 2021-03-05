@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /assets/media/images/
+Disallow: /config/
+Disallow: /core/
+Disallow: /modules/php/
+Disallow: /test/
