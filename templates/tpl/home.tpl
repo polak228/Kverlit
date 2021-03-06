@@ -1,1 +1,4 @@
-<h1>THIS IS HOME PAGE</h1>
+<header class="home_header">
+  <div></div>
+</header>
+<h1>HOME PAGE</h1>
