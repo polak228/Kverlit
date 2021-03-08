@@ -34,12 +34,10 @@ class KverlitController implements KverlitControllerInterface {
     require_once ROOT . "/config/php/connect.php"; // $connect
     switch($call) {
       case "engine": 
-        $EngineController = new EngineController($connect);
-        return $EngineController -> control($method);
+        $Controller = new EngineController($connect); break;
       case "router":
-        $RouterController = new RouterController($_POST["params"]["url"]);
-        return $RouterController -> control($method);
-    }
+        $Controller = new RouterController($_POST["params"]["url"]); break;
+    } return $Controller -> control($method);
   }
 
 }
